@@ -23,4 +23,22 @@ public class ItemsManagementService {
 	public Optional<Items> getItemById(Integer itemId) {
 		return itemsRepository.findById(itemId);
 	}
+
+	public void deleteItem(Integer itemId) {
+		itemsRepository.deleteById(itemId);
+		
+	}
+
+	public Items updateItemPrice(Integer itemId, double nprice) {
+		Items itemsFromDB = itemsRepository.findById(itemId).get();
+		itemsFromDB.setItem_price(nprice);
+		Items updatedItems = itemsRepository.save(itemsFromDB);
+		return updatedItems;
+	}
+
+	public Iterable<Items> getAllItems() {
+		
+		return itemsRepository.findAll();
+	}
+	
 }
