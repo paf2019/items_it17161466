@@ -41,12 +41,27 @@ public class Items {
 	   // @NotEmpty(message = "*Please provide an item weight")
 	    private Double item_weight;
 	    
+	    @Column(name = "quantity")
+		   // @Email(message = "*Please provide an item weight")
+		   // @NotEmpty(message = "*Please provide an item weight")
+		private int quantity;
+	    
 	 /*   @ManyToMany(cascade = CascadeType.ALL)
 	    @JoinTable(name = "item_supply", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
 	    private Set<User> item_supplier;*/
 
+	    
+	    
 		public int getId() {
 			return id;
+		}
+
+		public int getQuantity() {
+			return quantity;
+		}
+
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
 		}
 
 		public void setId(int id) {
